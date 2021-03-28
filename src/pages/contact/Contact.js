@@ -4,15 +4,23 @@ import { ErrorMessage } from '../../utils/helper'
 import { useForm } from 'react-hook-form';
 
 const Container = styled.div`
- width: 100vw;
- height: 100vh;
- display: flex;
- flex-direction: column;
+ width: 1140px;
+ max-width: 94%;
+ overflow-y:auto;
+ margin: 0 auto;
  color: white;
- align-items: center;
- justify-content: center;
+ margin-top: 5%;
+ margin-bottom: 10%;
  p {
     margin-top: 10px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-top: 18%;
+    margin-bottom: 15%;
+  }
+  @media screen and (max-width: 992px) {
+    margin-top: 18%;
+    margin-bottom: 15%;
   }
 `;
 
@@ -29,7 +37,7 @@ const Contact = () => {
         handleSubmit,
         formState: { isSubmitting },
     } = useForm();
-    
+
     const onSubmit = (data) => {
         fetch('/?no-cache=1', {
             method: 'POST',
@@ -39,7 +47,7 @@ const Contact = () => {
                 ...data,
             }),
         })
-            .then(() => {})
+            .then(() => { })
             .catch((err) => console.error(err));
     };
 
